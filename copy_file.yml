@@ -1,0 +1,15 @@
+---
+- name: This playbook to copy files
+  hosts: all
+  become: true
+  tasks:
+  - name: Making Directory
+    file:
+      path: /opt/ansible
+      state: directory
+  - name: Copy files
+    copy:
+      src: /home/ansadmin/index.html
+      dest: /opt/ansible/index.html
+      mode: 0600
+      owner: john
